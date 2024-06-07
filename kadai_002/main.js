@@ -41,7 +41,6 @@ const createText = () => {
   // 配列からランダムにテキストを取得し画面に表示する
   untyped = textLists[random];
   untypedfield.textContent = untyped;
-
 };
 
 // キー入力の判定
@@ -100,14 +99,16 @@ const gameOver = id => {
   clearInterval(id);
 
   wrap.textContent = 'タイムアップ！';
-  
+  typedfield.style.display = 'none';    
+
   setTimeout(() => {
-  const result = confirm(rankCheck(score));
-  // OKボタンをクリックされたらリロードする
-  if(result == true) {
-    window.location.reload();
-  }
- },1000);
+    const result = confirm(rankCheck(score));
+
+    // OKボタンをクリックされたらリロードする
+    if(result == true) {
+      window.location.reload();
+    }
+  }, 1000);   
 };
 
 // カウントダウンタイマー
@@ -149,4 +150,3 @@ start.addEventListener('click', () => {
 });
 
 untypedfield.textContent = 'スタートボタンで開始';
-
